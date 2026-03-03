@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+"""
+Problema 1: Sockets básicos - Servidor
+Objetivo: Crear un servidor TCP que acepte una conexión y intercambie mensajes básicos
+"""
+
+import socket
+def main():
+    # scoket TCP/IP
+    servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # Asociar la dirección y puerto del servidor
+    direccion = ('127.0.0.1', 65432)
+    servidor.bind(direccion)
+    # Poner el socket en modo escucha
+    servidor.listen(1)
+    print("Servidor a la espera de conexiones ...", direccion)
+    # Aceptar una conexión entrante
+    conexion, addr  = servidor.accept()
+    print(f"Conexión realizada por {addr}")
+    try:
+         # Recibir datos del cliente
+        datos = conexion.recv(1024)
+        print("Mensaje recibido:", datos.decode('utf-8'))
+        # Enviar respuesta al cliente (convertida a bytes)
+        respuesta = "Hola cliente"
+        conexion.sendall(respuesta.encode('utf-8'))
+    finally:
+        # Cerrar conexión con el cliente
+        conexion.close()
+        servidor.close()
+        print("Conexión cerrada.")
+
+if __name__ == "__main__":
+    main()
