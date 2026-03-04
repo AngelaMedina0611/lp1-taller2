@@ -20,6 +20,10 @@ def main():
     cliente.sendall(mensaje.encode('utf-8'))
     print("Mensaje enviado")
 
+    datos = cliente.recv(1024)
+    print("Respuesta del servidor:", datos.decode('utf-8'))
+
     
+
 
     
