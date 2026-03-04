@@ -12,7 +12,9 @@ PORT = 65432
 
 # Crear un socket TCP/IP
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# TODO: Enlazar el socket a la dirección y puerto especificados
+
+# Enlazar el socket a la dirección y puerto especificados
+server.bind((HOST, PORT))
 
 # TODO: Poner el socket en modo escucha
 # El parámetro define el número máximo de conexiones en cola
