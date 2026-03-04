@@ -26,7 +26,7 @@ def receive_messages():
                 break
 
         # Imprimir el mensaje recibido
-        print(message)
+        print("\n" + message)
 
 # Solicitar nombre de usuario al cliente
 client_name = input("Cuál es tu nombre? ")
