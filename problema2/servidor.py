@@ -6,7 +6,9 @@ Objetivo: Crear un servidor TCP que devuelva exactamente lo que recibe del clien
 
 import socket
 
-# TODO: Definir la dirección y puerto del servidor
+# Definir la dirección y puerto del servidor
+HOST = '127.0.0.1'
+PORT = 65432
 
 # TODO: Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
