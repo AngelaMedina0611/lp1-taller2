@@ -7,7 +7,9 @@ Objetivo: Crear un servidor de chat que maneje múltiples clientes simultáneame
 import socket
 import threading
 
-# TODO: Definir la dirección y puerto del servidor
+# Definir la dirección y puerto del servidor
+HOST = "127.0.0.1"   # localhost
+PORT = 5000         # Puerto del servidor
 
 # Lista para mantener todos los sockets de clientes conectados
 clients = []

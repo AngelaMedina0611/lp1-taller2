@@ -54,7 +54,12 @@ receive_thread.start()
 
 # Bucle principal en el hilo principal para enviar mensajes al servidor
 while True:
+    try:
     # Solicitar mensaje al usuario por consola
     message = input("Mensaje: ")
-    # TODO: Codificar el mensaje a bytes y enviarlo al servidor
-
+     # Codificar el mensaje a bytes y enviarlo al servidor
+        client_socket.send(message.encode())
+    except:
+        print("Error al enviar mensaje.")
+        client_socket.close()
+        break
