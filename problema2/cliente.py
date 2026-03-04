@@ -33,5 +33,6 @@ data = client.recv(1024)
 # Decodificar e imprimir los datos recibidos
 print("Mensaje recibido: ", data.decode())
 
-# TODO: Cerrar la conexión con el servidor
+# Cerrar la conexión con el servidor
+client.close()
 
