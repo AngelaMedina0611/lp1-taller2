@@ -7,6 +7,10 @@ Objetivo: Crear un cliente de chat que se conecte a un servidor y permita enviar
 import socket
 import threading
 
+# Dirección y puerto del servidor
+HOST = "127.0.0.1"   # localhost
+PORT = 5000          # Puerto donde escucha el servidor
+
 def receive_messages():
     """
     Función ejecutada en un hilo separado para recibir mensajes del servidor
