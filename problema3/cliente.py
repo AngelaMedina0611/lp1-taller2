@@ -17,8 +17,8 @@ def receive_messages():
     de forma continua sin bloquear el hilo principal.
     """
     while True:
-        # TODO: Recibir mensajes del servidor (hasta 1024 bytes) y decodificarlos
-
+        # Recibir mensajes del servidor (hasta 1024 bytes) y decodificarlos
+        message = client_socket.recv(1024).decode()
         # Imprimir el mensaje recibido
         print(message)
 
