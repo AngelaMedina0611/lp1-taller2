@@ -33,7 +33,8 @@ while True:
     
     print(f"Conexión realizada por {addr}")
 
-    # TODO: Recibir datos del cliente (hasta 1024 bytes)
+    # Recibir datos del cliente (hasta 1024 bytes)
+    data = conn.recv(1024)
     
     # Si no se reciben datos, salir del bucle
     if not data:
