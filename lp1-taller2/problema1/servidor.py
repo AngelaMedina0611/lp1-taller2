@@ -17,3 +17,7 @@ def main():
     servidor.listen(1)
     print("Servidor a la espera de conexiones ...", direccion)
     
+    # Aceptar una conexión entrante
+    conexion, addr  = servidor.accept()
+    print(f"Conexión realizada por {addr}")
+   
