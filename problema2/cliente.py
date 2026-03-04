@@ -27,7 +27,8 @@ print(f"Mensaje '{message}' enviado.")
 client.sendall(message.encode())
 
 
-# TODO: Recibir datos del servidor (hasta 1024 bytes)
+# Recibir datos del servidor (hasta 1024 bytes)
+data = client.recv(1024)
 
 # Decodificar e imprimir los datos recibidos
 print("Mensaje recibido: ", data.decode())
