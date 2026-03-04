@@ -43,7 +43,8 @@ while True:
     # Mostrar los datos recibidos (en formato bytes)
     print("Datos recibidos:", data)
     
-    # TODO: Enviar los mismos datos de vuelta al cliente (echo)
+    # Enviar los mismos datos de vuelta al cliente (echo)
+    conn.sendall(data)
     
     # TODO: Cerrar la conexión con el cliente actual
 
