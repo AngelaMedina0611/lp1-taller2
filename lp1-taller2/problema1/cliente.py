@@ -16,4 +16,10 @@ def main():
     cliente.connect(servidor)
     print("Conectado al servidor")
 
+    mensaje = "Hola servidor"
+    cliente.sendall(mensaje.encode('utf-8'))
+    print("Mensaje enviado")
+
+    
+
     
