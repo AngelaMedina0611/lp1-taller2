@@ -12,4 +12,8 @@ def main():
     cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     servidor = ('127.0.0.1', 65432)
 
+    print("Intentando conectar...")
+    cliente.connect(servidor)
+    print("Conectado al servidor")
+
     
