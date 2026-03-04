@@ -13,9 +13,8 @@ PORT = 65432
 # Solicitar mensaje al usuario por consola
 message = input("Mensaje: ")
 
-# TODO: Crear un socket TCP/IP
-# AF_INET: socket de familia IPv4
-# SOCK_STREAM: socket de tipo TCP (orientado a conexión)
+# socket TCP/IP
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # TODO: Conectar el socket al servidor en la dirección y puerto especificados
 
