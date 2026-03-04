@@ -23,7 +23,11 @@ def main():
     datos = cliente.recv(1024)
     print("Respuesta del servidor:", datos.decode('utf-8'))
 
-    
+    cliente.close()
+    print("Cliente cerrado")
+
+if __name__ == "__main__":
+    main()
 
 
     
