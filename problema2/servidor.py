@@ -46,5 +46,6 @@ while True:
     # Enviar los mismos datos de vuelta al cliente (echo)
     conn.sendall(data)
     
-    # TODO: Cerrar la conexión con el cliente actual
+    # Cerrar la conexión con el cliente actual
+    conn.close()
 
