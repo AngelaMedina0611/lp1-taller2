@@ -10,10 +10,8 @@ import socket
 HOST = '127.0.0.1'
 PORT = 65432
 
-# TODO: Crear un socket TCP/IP
-# AF_INET: socket de familia IPv4
-# SOCK_STREAM: socket de tipo TCP (orientado a conexión)
-
+# Crear un socket TCP/IP
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # TODO: Enlazar el socket a la dirección y puerto especificados
 
 # TODO: Poner el socket en modo escucha
