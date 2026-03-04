@@ -16,7 +16,8 @@ message = input("Mensaje: ")
 # socket TCP/IP
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# TODO: Conectar el socket al servidor en la dirección y puerto especificados
+# Conectar el socket al servidor en la dirección y puerto especificados
+client.connect((HOST, PORT))
 
 # Mostrar mensaje que se va a enviar
 print(f"Mensaje '{message}' enviado.")
