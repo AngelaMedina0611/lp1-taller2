@@ -6,7 +6,9 @@ Objetivo: Crear un cliente TCP que envíe un mensaje al servidor y reciba la mis
 
 import socket
 
-# TODO: Definir la dirección y puerto del servidor
+# Definir la dirección y puerto del servidor
+HOST = '127.0.0.1'
+PORT = 65432
 
 # Solicitar mensaje al usuario por consola
 message = input("Mensaje: ")
