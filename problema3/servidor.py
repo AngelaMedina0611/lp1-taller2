@@ -59,10 +59,10 @@ def broadcast(message, sender_socket):
             # TODO: Enviar el mensaje codificado a bytes a cada cliente
 
 
-# TODO: Crear un socket TCP/IP
+# Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
 # SOCK_STREAM: socket de tipo TCP (orientado a conexión)
-
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # TODO: Enlazar el socket a la dirección y puerto especificados
 
 # TODO: Poner el socket en modo escucha
