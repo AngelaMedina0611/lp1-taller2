@@ -16,8 +16,9 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Enlazar el socket a la dirección y puerto especificados
 server.bind((HOST, PORT))
 
-# TODO: Poner el socket en modo escucha
+# Poner el socket en modo escucha
 # El parámetro define el número máximo de conexiones en cola
+server.listen(1)
 
 # Bucle infinito para manejar múltiples conexiones (una a la vez)
 while True:
