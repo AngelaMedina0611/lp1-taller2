@@ -19,6 +19,12 @@ def receive_messages():
     while True:
         # Recibir mensajes del servidor (hasta 1024 bytes) y decodificarlos
         message = client_socket.recv(1024).decode()
+
+         # Si no se recibe nada, el servidor cierra la conexión
+            if not message:
+                print("Conexión cerrada por el servidor.")
+                break
+
         # Imprimir el mensaje recibido
         print(message)
 
