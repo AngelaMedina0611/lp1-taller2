@@ -63,7 +63,9 @@ def broadcast(message, sender_socket):
 # AF_INET: socket de familia IPv4
 # SOCK_STREAM: socket de tipo TCP (orientado a conexión)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# TODO: Enlazar el socket a la dirección y puerto especificados
+
+# Enlazar el socket a la dirección y puerto especificados
+server_socket.bind((HOST, PORT))
 
 # TODO: Poner el socket en modo escucha
 # El parámetro define el número máximo de conexiones en cola
