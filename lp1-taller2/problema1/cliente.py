@@ -12,20 +12,4 @@ def main():
     cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     servidor = ('127.0.0.1', 65432)
 
-    print("Intentando conectar...")
-    cliente.connect(servidor)
-    print("Conectado al servidor")
-
-    mensaje = "Hola servidor"
-    cliente.sendall(mensaje.encode('utf-8'))
-    print("Mensaje enviado")
-
-    datos = cliente.recv(1024)
-    print("Respuesta del servidor:", datos.decode('utf-8'))
-
-    cliente.close()
-    print("Cliente cerrado")
-
-if __name__ == "__main__":
-    main()
-
+    
