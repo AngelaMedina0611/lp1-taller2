@@ -25,10 +25,11 @@ while True:
 
     print("Servidor a la espera de conexiones ...")
     
-    # TODO: Aceptar una conexión entrante
+    # Aceptar una conexión entrante
     # accept() bloquea hasta que llega una conexión
     # conn: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
+    conn, addr = server.accept()
     
     print(f"Conexión realizada por {addr}")
 
