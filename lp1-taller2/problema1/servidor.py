@@ -29,4 +29,11 @@ def main():
          # Enviar respuesta al cliente (convertida a bytes)
         respuesta = "Hola cliente"
         conexion.sendall(respuesta.encode('utf-8'))
-   
+         finally:
+        # Cerrar conexión con el cliente
+        conexion.close()
+        servidor.close()
+        print("Conexión cerrada.")
+
+if __name__ == "__main__":
+    main()
