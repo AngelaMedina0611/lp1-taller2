@@ -67,8 +67,8 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Enlazar el socket a la dirección y puerto especificados
 server_socket.bind((HOST, PORT))
 
-# TODO: Poner el socket en modo escucha
-# El parámetro define el número máximo de conexiones en cola
+# Poner el socket en modo escucha
+server_socket.listen(5)
 
 print("Servidor a la espera de conexiones ...")
 
