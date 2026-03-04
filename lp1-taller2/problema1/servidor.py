@@ -13,3 +13,7 @@ def main():
     direccion = ('127.0.0.1', 65432)
     servidor.bind(direccion)
   
+    # Poner el socket en modo escucha
+    servidor.listen(1)
+    print("Servidor a la espera de conexiones ...", direccion)
+    
