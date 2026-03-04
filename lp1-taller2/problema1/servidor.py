@@ -26,3 +26,7 @@ def main():
         datos = conexion.recv(1024)
         print("Mensaje recibido:", datos.decode('utf-8'))
        
+         # Enviar respuesta al cliente (convertida a bytes)
+        respuesta = "Hola cliente"
+        conexion.sendall(respuesta.encode('utf-8'))
+   
