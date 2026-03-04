@@ -20,4 +20,9 @@ def main():
     # Aceptar una conexión entrante
     conexion, addr  = servidor.accept()
     print(f"Conexión realizada por {addr}")
-   
+    
+     try:
+         # Recibir datos del cliente
+        datos = conexion.recv(1024)
+        print("Mensaje recibido:", datos.decode('utf-8'))
+       
