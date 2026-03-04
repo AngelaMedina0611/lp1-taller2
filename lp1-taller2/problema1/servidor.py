@@ -9,3 +9,7 @@ def main():
     # scoket TCP/IP
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
+    # Asociar la dirección y puerto del servidor
+    direccion = ('127.0.0.1', 65432)
+    servidor.bind(direccion)
+  
