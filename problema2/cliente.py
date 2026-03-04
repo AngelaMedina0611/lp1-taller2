@@ -22,8 +22,10 @@ client.connect((HOST, PORT))
 # Mostrar mensaje que se va a enviar
 print(f"Mensaje '{message}' enviado.")
 
-# TODO: Codificar el mensaje a bytes y enviarlo al servidor
+# mensaje a bytes y enviarlo al servidor
 # sendall() asegura que todos los datos sean enviados
+client.sendall(message.encode())
+
 
 # TODO: Recibir datos del servidor (hasta 1024 bytes)
 
