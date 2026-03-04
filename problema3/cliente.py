@@ -44,7 +44,8 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Conectar el socket al servidor en la dirección y puerto especificados
 client_socket.connect((HOST, PORT))
 
-# TODO: Enviar el nombre del cliente al servidor (codificado a bytes)
+# Enviar el nombre del cliente al servidor (codificado a bytes)
+client_socket.send(client_name.encode())
 
 # Crear y iniciar un hilo para recibir mensajes del servidor
 # target: función que se ejecutará en el hilo
