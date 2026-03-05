@@ -24,8 +24,9 @@ connection.request("GET", "/")
 # getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
 response = connection.getresponse()
 
-# TODO: Leer el contenido de la respuesta
+# Leer el contenido de la respuesta
 # read() devuelve el cuerpo de la respuesta en bytes
+data = response.read()
 
 # TODO: Decodificar los datos de bytes a string e imprimirlos
 # decode() convierte los bytes a string usando UTF-8 por defecto
