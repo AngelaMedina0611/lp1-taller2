@@ -22,7 +22,7 @@ def receive_messages():
             message = client_socket.recv(1024).decode()
 
             # Si no se recibe nada, el servidor cierra la conexión
-                if not message:
+            if not message:
                     print("Conexión cerrada por el servidor.")
                     break
 
@@ -56,7 +56,7 @@ receive_thread.start()
 while True:
     try:
     # Solicitar mensaje al usuario por consola
-    message = input("Mensaje: ")
+        message = input("Mensaje: ")
      # Codificar el mensaje a bytes y enviarlo al servidor
         client_socket.send(message.encode())
     except:

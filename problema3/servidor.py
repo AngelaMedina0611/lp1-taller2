@@ -25,7 +25,7 @@ def handle_client(client_socket, client_name):
     while True:
         try:
             # Recibir datos del cliente (hasta 1024 bytes)
-             data = client_socket.recv(1024)
+            data = client_socket.recv(1024)
 
             # Si no se reciben datos, el cliente se desconectó
             if not data:
@@ -39,12 +39,19 @@ def handle_client(client_socket, client_name):
             
             # Retransmitir el mensaje a todos los clientes excepto al remitente
             broadcast(message, client_socket)
-            
+
         except ConnectionResetError:
             # Manejar desconexión inesperada del cliente
             clients.remove(client_socket)
             client_socket.close()
             break
+
+    # Eliminar cliente cuando se desconecta correctamente
+    if client_socket in clients:
+        clients.remove(client_socket)
+    client_socket.close()
+    broadcast(f"{client_name} ha salido del chat.", client_socket)
+
 
 def broadcast(message, sender_socket):
     """
@@ -59,6 +66,7 @@ def broadcast(message, sender_socket):
             # Enviar el mensaje codificado a bytes a cada cliente
             client.send(message.encode())
 
+
 # Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
 # SOCK_STREAM: socket de tipo TCP (orientado a conexión)
@@ -68,6 +76,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((HOST, PORT))
 
 # Poner el socket en modo escucha
+# El parámetro define el número máximo de conexiones en cola
 server_socket.listen(5)
 
 print("Servidor a la espera de conexiones ...")
@@ -78,9 +87,10 @@ while True:
     # client: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
     client, addr = server_socket.accept()
+    
     print(f"Conexión realizada por {addr}")
     
-    # Recibir el nombre del cliente (hasta 1024 byt es) y decodificarlo
+    # Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
     client_name = client.recv(1024).decode()
     
     # Agregar el socket del cliente a la lista de clientes conectados
@@ -92,10 +102,10 @@ while True:
     # Notificar a todos los clientes que un nuevo usuario se unió al chat
     broadcast(f"{client_name} se ha unido al Chat.", client)
     
-    # Crear e iniciar  un hilo para manejar la comunicación con este cliente
+    # Crear e iniciar un hilo para manejar la comunicación con este cliente
     # target: función que se ejecutará en el hilo
     # args: argumentos que se pasarán a la función
-     client_handler = threading.Thread(
+    client_handler = threading.Thread(
         target=handle_client,
         args=(client, client_name)
     )
