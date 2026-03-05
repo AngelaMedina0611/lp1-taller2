@@ -8,7 +8,9 @@ y sirva archivos estáticos comprendiendo headers HTTP
 import http.server
 import socket
 
-# TODO: Definir la dirección y puerto del servidor HTTP
+# Definir la dirección y puerto del servidor HTTP
+HOST = "localhost"
+PORT = 8000
 
 class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     """
