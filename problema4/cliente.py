@@ -28,8 +28,11 @@ response = connection.getresponse()
 # read() devuelve el cuerpo de la respuesta en bytes
 data = response.read()
 
-# TODO: Decodificar los datos de bytes a string e imprimirlos
+# Decodificar los datos de bytes a string e imprimirlos
 # decode() convierte los bytes a string usando UTF-8 por defecto
+print("Código de estado:", response.status)
+print("Respuesta del servidor:")
+print(data.decode())
 
 # TODO: Cerrar la conexión con el servidor
 
