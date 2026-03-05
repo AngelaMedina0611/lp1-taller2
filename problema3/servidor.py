@@ -80,7 +80,8 @@ while True:
     client, addr = server_socket.accept()
     print(f"Conexión realizada por {addr}")
     
-    # TODO: Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
+    # Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
+    client_name = client.recv(1024).decode()
     
     # TODO: Agregar el socket del cliente a la lista de clientes conectados
     
