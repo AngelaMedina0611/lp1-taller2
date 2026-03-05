@@ -83,7 +83,8 @@ while True:
     # Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
     client_name = client.recv(1024).decode()
     
-    # TODO: Agregar el socket del cliente a la lista de clientes conectados
+    # Agregar el socket del cliente a la lista de clientes conectados
+    clients.append(client)
     
     # Enviar mensaje de confirmación de conexión al cliente
     client.send("ya estás conectado!".encode())
