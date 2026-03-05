@@ -56,8 +56,8 @@ def broadcast(message, sender_socket):
     """
     for client in clients:
         if client != sender_socket:
-            # TODO: Enviar el mensaje codificado a bytes a cada cliente
-
+            # Enviar el mensaje codificado a bytes a cada cliente
+            client.send(message.encode())
 
 # Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
@@ -74,10 +74,10 @@ print("Servidor a la espera de conexiones ...")
 
 # Bucle principal para aceptar conexiones entrantes
 while True:
-    # TODO: Aceptar una conexión entrante
+    # Aceptar una conexión entrante
     # client: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
-    
+    client, addr = server_socket.accept()
     print(f"Conexión realizada por {addr}")
     
     # TODO: Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
