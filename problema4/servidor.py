@@ -35,7 +35,7 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
 # - (HOST, PORT): Dirección y puerto donde escuchar
 # - MyRequestHandler: Clase que manejará las peticiones HTTP
 server = http.server.HTTPServer((HOST, PORT), MyRequestHandler)
-
+print(f"Servidor HTTP escuchando en http://{HOST}:{PORT}")
 # TODO: Iniciar el servidor y ponerlo en ejecución continua
 # serve_forever() maneja peticiones indefinidamente hasta una interrupción
 # (normalmente con Ctrl+C en la terminal)
