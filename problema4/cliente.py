@@ -34,5 +34,5 @@ print("Código de estado:", response.status)
 print("Respuesta del servidor:")
 print(data.decode())
 
-# TODO: Cerrar la conexión con el servidor
-
+# Cerrar la conexión con el servidor
+connection.close()
