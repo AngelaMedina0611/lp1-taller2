@@ -20,8 +20,9 @@ connection = http.client.HTTPConnection(HOST, PORT)
 # Segundo parámetro: path del recurso solicitado
 connection.request("GET", "/")
 
-# TODO: Obtener la respuesta del servidor
+# Obtener la respuesta del servidor
 # getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
+response = connection.getresponse()
 
 # TODO: Leer el contenido de la respuesta
 # read() devuelve el cuerpo de la respuesta en bytes
