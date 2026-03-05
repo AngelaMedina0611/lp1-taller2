@@ -14,11 +14,11 @@ PORT = 8000
 # HTTPConnection permite establecer conexiones HTTP con servidores
 connection = http.client.HTTPConnection(HOST, PORT)
 
-
-# TODO: Realizar una petición GET al path raíz ('/')
+# Realizar una petición GET al path raíz ('/')
 # request() envía la petición HTTP al servidor
 # Primer parámetro: método HTTP (GET, POST, etc.)
 # Segundo parámetro: path del recurso solicitado
+connection.request("GET", "/")
 
 # TODO: Obtener la respuesta del servidor
 # getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
