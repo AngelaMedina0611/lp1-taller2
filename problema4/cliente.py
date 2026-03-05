@@ -6,7 +6,9 @@ Objetivo: Crear un cliente HTTP que realice una petición GET a un servidor web 
 
 import http.client
 
-# TODO: Definir la dirección y puerto del servidor HTTP
+# Definir la dirección y puerto del servidor HTTP
+HOST = "localhost"
+PORT = 8000
 
 # TODO: Crear una conexión HTTP con el servidor
 # HTTPConnection permite establecer conexiones HTTP con servidores
