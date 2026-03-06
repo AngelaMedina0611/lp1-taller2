@@ -22,4 +22,9 @@ def upload(sock, filename):
     
     # Enviar comando con nombre y tamaño del archivo
     sock.sendall(f"UPLOAD {filename} {size}".encode())
+    
+     # Enviar archivo en bloques
+    with open(filename, "rb") as f:
+        while chunk := f.read(BUFFER):
+            sock.sendall(chunk)
 
