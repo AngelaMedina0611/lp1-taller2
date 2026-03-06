@@ -19,4 +19,7 @@ def checksum(path):
 # Enviar archivo al servidor
 def upload(sock, filename):
     size = os.path.getsize(filename)
+    
+    # Enviar comando con nombre y tamaño del archivo
+    sock.sendall(f"UPLOAD {filename} {size}".encode())
 
