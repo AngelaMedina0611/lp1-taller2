@@ -15,3 +15,8 @@ def checksum(path):
         while chunk := f.read(BUFFER):
             h.update(chunk)
     return h.hexdigest()
+
+# Enviar archivo al servidor
+def upload(sock, filename):
+    size = os.path.getsize(filename)
+
