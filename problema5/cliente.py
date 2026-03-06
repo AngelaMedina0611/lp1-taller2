@@ -41,4 +41,13 @@ def download(sock, filename):
     
      # Recibir respuesta del servidor
     resp = sock.recv(1024).decode().split()
+    
+     # Si el archivo no existe en el servidor
+    if resp[0] == "ERROR":
+        print("Archivo no existe")
+        return
+
+    size = int(resp[1])
+    received = 0
+
      
