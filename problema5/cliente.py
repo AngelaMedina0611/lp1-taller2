@@ -39,4 +39,6 @@ def download(sock, filename):
     # Enviar comando de descarga
     sock.sendall(f"DOWNLOAD {filename}".encode())
     
+     # Recibir respuesta del servidor
+    resp = sock.recv(1024).decode().split()
      
