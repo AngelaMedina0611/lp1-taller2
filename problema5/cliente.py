@@ -34,4 +34,9 @@ def upload(sock, filename):
      # Comparar con el checksum local
     print("Integridad:", "OK" if server_hash == checksum(filename) else "ERROR")
 
-
+# Descargar archivo desde el servidor
+def download(sock, filename):
+    # Enviar comando de descarga
+    sock.sendall(f"DOWNLOAD {filename}".encode())
+    
+     
