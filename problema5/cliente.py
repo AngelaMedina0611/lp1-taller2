@@ -27,4 +27,8 @@ def upload(sock, filename):
     with open(filename, "rb") as f:
         while chunk := f.read(BUFFER):
             sock.sendall(chunk)
+    
+     # Recibir checksum calculado por el servidor
+    server_hash = sock.recv(1024).decode()
+
 
