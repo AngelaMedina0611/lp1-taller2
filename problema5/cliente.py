@@ -30,5 +30,8 @@ def upload(sock, filename):
     
      # Recibir checksum calculado por el servidor
     server_hash = sock.recv(1024).decode()
+    
+     # Comparar con el checksum local
+    print("Integridad:", "OK" if server_hash == checksum(filename) else "ERROR")
 
 
