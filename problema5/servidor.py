@@ -74,3 +74,7 @@ def main():
         server.listen()
 
         print("Servidor esperando conexiones...")
+        
+        while True:
+            conn, addr = server.accept()  # Esperar conexión de cliente
+
