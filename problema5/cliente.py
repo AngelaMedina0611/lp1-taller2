@@ -55,4 +55,5 @@ def download(sock, filename):
             data = sock.recv(min(BUFFER, size - received))
             f.write(data)
             received += len(data)
-     
+ # Recibir checksum enviado por el servidor
+    server_hash = sock.recv(1024).decode()
