@@ -9,3 +9,6 @@ PORT = 5001
 
 # Diccionario de clientes conectados -> {usuario : socket}
 clients = {}
+
+# Diccionario que guarda en qué sala está cada usuario -> {usuario : sala}
+user_rooms = {}
