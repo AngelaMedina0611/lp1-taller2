@@ -60,3 +60,8 @@ def download(sock, filename):
     
  # Verificar integridad del archivo descargado
     print("Integridad:", "OK" if server_hash == checksum(filename) else "ERROR")
+ # Solicitar lista de archivos al servidor
+def list_files(sock):
+    sock.sendall(b"LIST")
+    files = sock.recv(4096).decode()
+    print("Archivos en servidor:\n", files)   
