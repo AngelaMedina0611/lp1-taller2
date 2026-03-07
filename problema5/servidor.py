@@ -78,3 +78,19 @@ def main():
         while True:
             conn, addr = server.accept()  # Esperar conexión de cliente
 
+            with conn:
+                # Recibir comando del cliente
+                cmd = conn.recv(1024).decode().split()
+
+                if cmd[0] == "UPLOAD":
+                    handle_upload(conn, cmd[1], int(cmd[2]))
+
+                elif cmd[0] == "DOWNLOAD":
+                    handle_download(conn, cmd[1])
+
+                elif cmd[0] == "LIST":
+                    handle_list(conn)
+
+
+if __name__ == "__main__":
+    main()
