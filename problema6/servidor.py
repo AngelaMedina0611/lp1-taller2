@@ -37,4 +37,12 @@ def load_rooms():
             rooms = json.load(f)
     else:
         rooms = {"general": []}
+        
+def save_rooms():
+    """
+    Guarda las salas actuales en un archivo JSON.
+    Esto permite que las salas no se pierdan al reiniciar el servidor.
+    """
+    with open(ROOM_FILE, "w") as f:
+        json.dump(rooms, f)
 
