@@ -15,3 +15,6 @@ user_rooms = {}
 
 # Diccionario de salas -> {sala : [usuarios]}
 rooms = {}
+
+# Lock para evitar problemas de concurrencia entre hilos
+lock = threading.Lock()
