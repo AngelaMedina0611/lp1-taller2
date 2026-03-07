@@ -49,3 +49,7 @@ def handle_download(conn, filename):
     if not os.path.exists(path):
         conn.sendall(b"ERROR")
         return
+    size = os.path.getsize(path)
+
+    # Enviar confirmación y tamaño del archivo
+    conn.sendall(f"OK {size}".encode())
