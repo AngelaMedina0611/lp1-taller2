@@ -19,5 +19,22 @@ rooms = {}
 # Lock para evitar problemas de concurrencia entre hilos
 lock = threading.Lock()
 
-# Archivo donde se guardarán las salas (persistencia básica)
+# Archivo donde se guardan las salas (persistencia básica)
 ROOM_FILE = "rooms.json"
+
+# -----------------------------------------------------------
+# CARGAR SALAS DESDE ARCHIVO
+# -----------------------------------------------------------
+def load_rooms():
+    """
+    Carga las salas guardadas en el archivo rooms.json.
+    Si no existe, crea una sala por defecto llamada 'general'.
+    """
+    global rooms
+
+    if os.path.exists(ROOM_FILE):
+        with open(ROOM_FILE, "r") as f:
+            rooms = json.load(f)
+    else:
+        rooms = {"general": []}
+
