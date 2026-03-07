@@ -44,3 +44,8 @@ def handle_upload(conn, filename, size):
 # Maneja el comando DOWNLOAD
 def handle_download(conn, filename):
     path = safe_path(filename)
+
+     # Verificar si el archivo existe
+    if not os.path.exists(path):
+        conn.sendall(b"ERROR")
+        return
