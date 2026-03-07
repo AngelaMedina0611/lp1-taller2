@@ -30,3 +30,11 @@ def handle_upload(conn, filename, size):
 
     with open(path, "wb") as f:
         received = 0
+
+        # Recibir el archivo en bloques hasta completar el tamaño esperado
+        while received < size:
+            data = conn.recv(min(BUFFER, size - received))
+            if not data:
+                break
+            f.write(data)
+            received += len(data)
