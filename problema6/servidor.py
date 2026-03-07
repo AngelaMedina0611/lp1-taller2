@@ -12,3 +12,6 @@ clients = {}
 
 # Diccionario que guarda en qué sala está cada usuario -> {usuario : sala}
 user_rooms = {}
+
+# Diccionario de salas -> {sala : [usuarios]}
+rooms = {}
