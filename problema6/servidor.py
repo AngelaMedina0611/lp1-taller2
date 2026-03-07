@@ -60,5 +60,17 @@ def broadcast(room, message, sender=None):
                 clients[user].send(message.encode())
             except:
                 pass
+# -----------------------------------------------------------
+# MENSAJES PRIVADOS
+# -----------------------------------------------------------
+def private_message(sender, target, message):
+    """
+    Envía un mensaje privado entre usuarios.
+    """
+    if target in clients:
+        clients[target].send(f"[PRIVADO] {sender}: {message}".encode())
+    else:
+        clients[sender].send("Usuario no encontrado".encode())
+
 
 
