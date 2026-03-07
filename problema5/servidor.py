@@ -40,3 +40,7 @@ def handle_upload(conn, filename, size):
             received += len(data)
  # Enviar checksum al cliente para verificar integridad
     conn.sendall(checksum(path).encode())
+
+# Maneja el comando DOWNLOAD
+def handle_download(conn, filename):
+    path = safe_path(filename)
