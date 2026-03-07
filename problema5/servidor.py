@@ -23,3 +23,10 @@ def checksum(path):
 # Solo permite usar el nombre del archivo dentro de BASE_DIR
 def safe_path(filename):
     return os.path.join(BASE_DIR, os.path.basename(filename))
+
+# Maneja el comando UPLOAD
+def handle_upload(conn, filename, size):
+    path = safe_path(filename)
+
+    with open(path, "wb") as f:
+        received = 0
