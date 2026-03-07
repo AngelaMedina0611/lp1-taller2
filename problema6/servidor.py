@@ -18,3 +18,6 @@ rooms = {}
 
 # Lock para evitar problemas de concurrencia entre hilos
 lock = threading.Lock()
+
+# Archivo donde se guardarán las salas (persistencia básica)
+ROOM_FILE = "rooms.json"
