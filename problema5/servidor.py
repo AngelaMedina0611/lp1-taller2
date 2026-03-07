@@ -61,3 +61,8 @@ def handle_download(conn, filename):
     
      # Enviar checksum al final de la transferencia
     conn.sendall(checksum(path).encode())
+    
+# comando LIST (listar archivos disponibles en el servidor)
+def handle_list(conn):
+    files = os.listdir(BASE_DIR)
+    conn.sendall("\n".join(files).encode())
