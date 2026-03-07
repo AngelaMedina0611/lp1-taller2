@@ -66,3 +66,11 @@ def handle_download(conn, filename):
 def handle_list(conn):
     files = os.listdir(BASE_DIR)
     conn.sendall("\n".join(files).encode())
+    
+def main():
+    # Crear socket TCP
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
+        server.bind((HOST, PORT))
+        server.listen()
+
+        print("Servidor esperando conexiones...")
