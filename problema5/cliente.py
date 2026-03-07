@@ -69,3 +69,5 @@ def main():
     # Crear conexión con el servidor
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((HOST, PORT))
+         # Pedir comando al usuario
+        cmd = input("Comando (UPLOAD / DOWNLOAD / LIST): ").strip().upper()
