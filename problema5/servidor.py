@@ -38,3 +38,5 @@ def handle_upload(conn, filename, size):
                 break
             f.write(data)
             received += len(data)
+ # Enviar checksum al cliente para verificar integridad
+    conn.sendall(checksum(path).encode())
