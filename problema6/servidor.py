@@ -71,6 +71,19 @@ def private_message(sender, target, message):
         clients[target].send(f"[PRIVADO] {sender}: {message}".encode())
     else:
         clients[sender].send("Usuario no encontrado".encode())
-
+# -----------------------------------------------------------
+# CREAR SALA
+# -----------------------------------------------------------
+def create_room(room, user):
+    """
+    Crea una nueva sala si no existe.
+    """
+    with lock:
+        if room not in rooms:
+            rooms[room] = []
+            save_rooms()
+            clients[user].send(f"Sala '{room}' creada\n".encode())
+        else:
+            clients[user].send("La sala ya existe\n".encode())
 
 
