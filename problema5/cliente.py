@@ -65,3 +65,7 @@ def list_files(sock):
     sock.sendall(b"LIST")
     files = sock.recv(4096).decode()
     print("Archivos en servidor:\n", files)   
+def main():
+    # Crear conexión con el servidor
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.connect((HOST, PORT))
