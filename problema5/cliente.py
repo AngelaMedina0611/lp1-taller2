@@ -71,3 +71,15 @@ def main():
         sock.connect((HOST, PORT))
          # Pedir comando al usuario
         cmd = input("Comando (UPLOAD / DOWNLOAD / LIST): ").strip().upper()
+        if cmd == "UPLOAD":
+            upload(sock, input("Archivo a subir: "))
+            
+        elif cmd == "DOWNLOAD":
+            download(sock, input("Archivo a descargar: "))
+
+        elif cmd == "LIST":
+            list_files(sock)
+
+
+if __name__ == "__main__":
+    main()
