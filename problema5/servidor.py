@@ -18,3 +18,8 @@ def checksum(path):
         while chunk := f.read(BUFFER):  # Leer en bloques para soportar archivos grandes
             h.update(chunk)
     return h.hexdigest()
+
+# Evita accesos inseguros a rutas (ej: ../../archivo)
+# Solo permite usar el nombre del archivo dentro de BASE_DIR
+def safe_path(filename):
+    return os.path.join(BASE_DIR, os.path.basename(filename))
