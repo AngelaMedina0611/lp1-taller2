@@ -57,3 +57,6 @@ def download(sock, filename):
             received += len(data)
  # Recibir checksum enviado por el servidor
     server_hash = sock.recv(1024).decode()
+    
+ # Verificar integridad del archivo descargado
+    print("Integridad:", "OK" if server_hash == checksum(filename) else "ERROR")
