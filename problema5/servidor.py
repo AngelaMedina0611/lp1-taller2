@@ -53,3 +53,8 @@ def handle_download(conn, filename):
 
     # Enviar confirmación y tamaño del archivo
     conn.sendall(f"OK {size}".encode())
+    
+    # Enviar archivo en bloques
+    with open(path, "rb") as f:
+        while chunk := f.read(BUFFER):
+            conn.sendall(chunk)
