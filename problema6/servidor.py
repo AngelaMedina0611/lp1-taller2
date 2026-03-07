@@ -45,4 +45,20 @@ def save_rooms():
     """
     with open(ROOM_FILE, "w") as f:
         json.dump(rooms, f)
+        
+# -----------------------------------------------------------
+# ENVIAR MENSAJE A TODOS LOS USUARIOS DE UNA SALA
+# -----------------------------------------------------------
+def broadcast(room, message, sender=None):
+    """
+    Envía un mensaje a todos los usuarios de una sala.
+    El remitente no recibe su propio mensaje.
+    """
+    for user in rooms.get(room, []):
+        if user != sender and user in clients:
+            try:
+                clients[user].send(message.encode())
+            except:
+                pass
+
 
