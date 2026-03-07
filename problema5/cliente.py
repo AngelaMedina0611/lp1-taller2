@@ -49,5 +49,10 @@ def download(sock, filename):
 
     size = int(resp[1])
     received = 0
-
+ # Crear archivo local y recibir datos
+    with open(filename, "wb") as f:
+        while received < size:
+            data = sock.recv(min(BUFFER, size - received))
+            f.write(data)
+            received += len(data)
      
