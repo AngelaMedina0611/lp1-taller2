@@ -58,3 +58,6 @@ def handle_download(conn, filename):
     with open(path, "rb") as f:
         while chunk := f.read(BUFFER):
             conn.sendall(chunk)
+    
+     # Enviar checksum al final de la transferencia
+    conn.sendall(checksum(path).encode())
