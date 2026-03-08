@@ -94,5 +94,10 @@ def handle_client(conn):
             msg = conn.recv(1024).decode().strip()
 
             with lock:
+                # Solo los jugadores pueden hacer movimientos
+                if conn not in players:
+                    continue
+
+                player_id = players.index(conn)
 
     
