@@ -126,4 +126,15 @@ def handle_client(conn):
                 # Verificar resultado
                 result = check_winner()
                 
+                if result:
+                    broadcast(f"Resultado: {result}")
+                    break
+
+                # Cambiar turno
+                current_turn = 1 - current_turn
+                broadcast(f"Turno de {symbols[current_turn]}")
+
+        except:
+            break
+                
     
