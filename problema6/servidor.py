@@ -85,5 +85,17 @@ def create_room(room, user):
             clients[user].send(f"Sala '{room}' creada\n".encode())
         else:
             clients[user].send("La sala ya existe\n".encode())
+# -----------------------------------------------------------
+# UNIRSE A UNA SALA
+# -----------------------------------------------------------
+def join_room(room, user):
+    """
+    Permite a un usuario unirse a una sala existente.
+    Si el usuario ya está en otra sala, se le saca de esa sala antes de unirse a la nueva.
+    """
+    with lock:
 
-
+        # Verificar si la sala existe
+        if room not in rooms:
+            clients[user].send("La sala no existe\n".encode())
+            return
