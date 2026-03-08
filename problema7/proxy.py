@@ -27,3 +27,11 @@ def tunnel(client, host, port):
         
         # Responder al cliente que el túnel fue establecido
         client.sendall(b"HTTP/1.1 200 Connection Established\r\n\r\n")
+        
+         # Función que reenvía datos entre sockets
+        def forward(source, destination):
+            while True:
+                data = source.recv(BUFFER)
+                if not data:
+                    break
+                destination.sendall(data)
