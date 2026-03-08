@@ -77,5 +77,8 @@ def handle_http(client, request):
         port = int(port)
      else:
         port = 80  # Puerto HTTP por defecto
+        
+    # Conectar al servidor destino
+    server = socket.create_connection((host, port))
 
 
