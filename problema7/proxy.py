@@ -94,6 +94,12 @@ def handle_http(client, request):
     # Cerrar conexiones
     server.close()
     client.close()
+    
+def handle_client(client):
+    """
+    Maneja cada cliente conectado al proxy.
+    Determina si la petición es HTTP normal o HTTPS.
+    """
 
 
 
