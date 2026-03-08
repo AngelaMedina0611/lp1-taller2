@@ -68,3 +68,6 @@ def handle_client(conn):
     Maneja la conexión de cada cliente en un hilo independiente.
     """
     global current_turn
+    
+     # Mensaje inicial al conectarse
+    conn.send("JOIN para jugar | WATCH para observar\n".encode())
