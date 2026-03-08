@@ -83,6 +83,13 @@ def handle_http(client, request):
     
      # Enviar la petición original al servidor
     server.sendall(request)
+    
+     # Reenviar la respuesta del servidor al cliente
+    while True:
+        data = server.recv(BUFFER)
+        if not data:
+            break
+        client.sendall(data)
 
 
 
