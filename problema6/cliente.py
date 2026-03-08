@@ -34,3 +34,6 @@ def main():
     while True:
         msg = input()
         client.send(msg.encode())
+# Ejecutar cliente
+if __name__ == "__main__":
+    main()
