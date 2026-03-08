@@ -216,9 +216,13 @@ def handle_client(conn, addr):
 
     except:
         pass
-
-
     
+    finally:
+        # Eliminar cliente cuando se desconecta
+        with lock:
+            if username in clients:
+                del clients[username]
+   
         conn.close()
 
 
