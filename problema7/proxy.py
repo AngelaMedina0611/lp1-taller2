@@ -138,5 +138,9 @@ def start():
     
     # Asociar dirección y puerto
     proxy.bind((HOST, PORT))
+    
+    # Escuchar conexiones entrantes
+    proxy.listen(50)
+
 
 
