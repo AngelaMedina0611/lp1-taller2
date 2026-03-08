@@ -24,3 +24,6 @@ def tunnel(client, host, port):
      try:
         # Conectar al servidor destino
         server = socket.create_connection((host, port))
+        
+        # Responder al cliente que el túnel fue establecido
+        client.sendall(b"HTTP/1.1 200 Connection Established\r\n\r\n")
