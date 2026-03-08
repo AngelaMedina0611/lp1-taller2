@@ -141,3 +141,7 @@ def leave_room(room, user):
             
             # Avisar al resto de usuarios
             broadcast(room, f"{user} salió de la sala\n")
+            
+             # Eliminar registro de sala del usuario
+            del user_rooms[user]
+
