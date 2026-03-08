@@ -136,5 +136,22 @@ def handle_client(conn):
 
         except:
             break
+
+conn.close()
+
+
+def start():
+    """
+    Inicia el servidor y acepta conexiones de clientes.
+    """
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((HOST, PORT))
+    server.listen()
+
+    print(f"Servidor activo en {HOST}:{PORT}")
+
+    while True:
+        conn, addr = server.accept()
+        print("Cliente conectado:", addr)
                 
     
