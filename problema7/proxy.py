@@ -90,6 +90,10 @@ def handle_http(client, request):
         if not data:
             break
         client.sendall(data)
+        
+    # Cerrar conexiones
+    server.close()
+    client.close()
 
 
 
