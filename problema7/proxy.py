@@ -75,5 +75,7 @@ def handle_http(client, request):
     if ":" in host:
         host, port = host.split(":")
         port = int(port)
+     else:
+        port = 80  # Puerto HTTP por defecto
 
 
