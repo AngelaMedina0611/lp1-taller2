@@ -141,6 +141,14 @@ def start():
     
     # Escuchar conexiones entrantes
     proxy.listen(50)
+    log(f"Proxy escuchando en {HOST}:{PORT}")
+
+    while True:
+        # Aceptar conexión de un cliente
+        client, addr = proxy.accept()
+
+        log(f"Cliente conectado {addr}")
+
 
 
 
