@@ -135,5 +135,8 @@ def start():
     
     # Crear socket TCP
     proxy = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+    # Asociar dirección y puerto
+    proxy.bind((HOST, PORT))
 
 
