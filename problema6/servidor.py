@@ -86,6 +86,20 @@ def create_room(room, user):
         else:
             clients[user].send("La sala ya existe\n".encode())
 # -----------------------------------------------------------
+# SALIR DE UNA SALA
+# -----------------------------------------------------------
+def leave_room(room, user):
+    """
+    Permite a un usuario salir de una sala.
+    """
+    with lock:
+        if room in rooms and user in rooms[room]:
+            rooms[room].remove(user)
+            save_rooms()
+            if user in user_rooms:
+                del user_rooms[user]
+
+# -----------------------------------------------------------
 # UNIRSE A UNA SALA
 # -----------------------------------------------------------
 def join_room(room, user):
@@ -99,3 +113,7 @@ def join_room(room, user):
         if room not in rooms:
             clients[user].send("La sala no existe\n".encode())
             return
+        
+         # Si el usuario ya estaba en una sala, salir de ella
+        if user in user_rooms:
+            leave_room(user_rooms[user], user)
