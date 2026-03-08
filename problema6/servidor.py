@@ -163,5 +163,12 @@ def handle_client(conn, addr):
     Cada cliente se ejecuta en un hilo diferente.
     """
 
+    try:
+        # Pedir nombre de usuario
+        conn.send("Ingresa tu nombre: ".encode())
+        username = conn.recv(1024).decode().strip()
+    except:
+        conn.close()
+
 
 
