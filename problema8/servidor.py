@@ -17,3 +17,6 @@ symbols = ["X", "O"]
 
 # Variable que controla el turno actual
 current_turn = 0
+
+# Lock para evitar conflictos entre hilos
+lock = threading.Lock()
