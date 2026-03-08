@@ -152,6 +152,10 @@ def start():
         # Crear un hilo para manejar el cliente
         thread = threading.Thread(target=handle_client, args=(client,))
         thread.start()
+        
+# Punto de entrada del programa
+if __name__ == "__main__":
+    start()
 
 
 
