@@ -80,5 +80,9 @@ def handle_http(client, request):
         
     # Conectar al servidor destino
     server = socket.create_connection((host, port))
+    
+     # Enviar la petición original al servidor
+    server.sendall(request)
+
 
 
