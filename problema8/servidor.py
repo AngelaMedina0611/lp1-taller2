@@ -76,5 +76,14 @@ def handle_client(conn):
 
     # Sección crítica para modificar listas compartidas
     with lock:
+         # Matchmaking: solo 2 jugadores
+        if role == "JOIN" and len(players) < 2:
+            players.append(conn)
+            symbol = symbols[len(players)-1]
+            conn.send(f"Eres jugador {symbol}\n".encode())
+
+        else:
+            spectators.append(conn)
+            conn.send("Eres espectador\n".encode())
 
     
