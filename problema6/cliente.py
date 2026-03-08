@@ -24,3 +24,8 @@ def main():
     
      # Conectarse al servidor
     client.connect((HOST, PORT))
+    
+     # Crear hilo para recibir mensajes
+    thread = threading.Thread(target=receive_messages, args=(client,))
+    thread.daemon = True
+    thread.start()
