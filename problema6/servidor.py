@@ -167,6 +167,19 @@ def handle_client(conn, addr):
         # Pedir nombre de usuario
         conn.send("Ingresa tu nombre: ".encode())
         username = conn.recv(1024).decode().strip()
+        
+        # Registrar cliente
+        with lock:
+            clients[username] = conn
+
+        conn.send(
+            "Comandos disponibles:\n"
+            "CREATE sala\n"
+            "JOIN sala\n"
+            "LEAVE\n"
+            "USERS\n"
+            "MSG usuario mensaje\n".encode()
+        )
     except:
         conn.close()
 
