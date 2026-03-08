@@ -111,6 +111,10 @@ def handle_client(client):
         # Obtener la primera línea del request HTTP
         first_line = request.split(b"\r\n")[0].decode()
         log(first_line)
+        
+        # Separar método, destino y versión HTTP
+        method, target, _ = first_line.split()
+
 
 
 
