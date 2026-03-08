@@ -29,3 +29,8 @@ def main():
     thread = threading.Thread(target=receive_messages, args=(client,))
     thread.daemon = True
     thread.start()
+    
+    # Enviar mensajes al servidor
+    while True:
+        msg = input()
+        client.send(msg.encode())
