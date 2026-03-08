@@ -138,3 +138,6 @@ def leave_room(room, user):
     with lock:
         if room in rooms and user in rooms[room]:
             rooms[room].remove(user)
+            
+            # Avisar al resto de usuarios
+            broadcast(room, f"{user} salió de la sala\n")
