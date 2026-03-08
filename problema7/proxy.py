@@ -35,3 +35,11 @@ def tunnel(client, host, port):
                 if not data:
                     break
                 destination.sendall(data)
+                
+         # Crear dos hilos para reenviar datos en ambas direcciones
+        t1 = threading.Thread(target=forward, args=(client, server))
+        t2 = threading.Thread(target=forward, args=(server, client))
+
+        t1.start()
+        t2.start()
+
