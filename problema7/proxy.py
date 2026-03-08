@@ -7,3 +7,10 @@ PORT = 8888
 
 # Tamaño del buffer para recibir datos
 BUFFER = 4096
+
+def log(msg):
+    """
+    Función simple para mostrar mensajes de log
+    que ayudan a monitorear el funcionamiento del proxy.
+    """
+    print(f"[PROXY] {msg}")
