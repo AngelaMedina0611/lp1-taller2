@@ -11,3 +11,6 @@ board = [" " for _ in range(9)]
 # Listas de jugadores y espectadores
 players = []
 spectators = []
+
+# Símbolos de los jugadores
+symbols = ["X", "O"]
