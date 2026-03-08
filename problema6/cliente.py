@@ -16,3 +16,11 @@ def receive_messages(sock):
             print(message)
         except:
             break
+
+def main():
+
+    # Crear socket cliente
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+     # Conectarse al servidor
+    client.connect((HOST, PORT))
