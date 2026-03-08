@@ -148,6 +148,11 @@ def start():
         client, addr = proxy.accept()
 
         log(f"Cliente conectado {addr}")
+        
+        # Crear un hilo para manejar el cliente
+        thread = threading.Thread(target=handle_client, args=(client,))
+        thread.start()
+
 
 
 
