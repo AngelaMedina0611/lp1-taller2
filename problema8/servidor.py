@@ -33,3 +33,12 @@ def board_text():
 ---+---+---
  {b[6]} | {b[7]} | {b[8]}
 """
+def broadcast(msg):
+    """
+    Envía un mensaje a todos los jugadores y espectadores.
+    """
+    for client in players + spectators:
+        try:
+            client.sendall((msg + "\n").encode())
+        except:
+            pass
