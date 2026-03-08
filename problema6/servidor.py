@@ -192,7 +192,9 @@ def handle_client(conn, addr):
             # ---------------- COMANDO CREATE ----------------
             if parts[0] == "CREATE":
                 create_room(parts[1], username)
-
+             # ---------------- COMANDO JOIN ----------------
+            elif parts[0] == "JOIN":
+                join_room(parts[1], username)
 
     except:
         conn.close()
