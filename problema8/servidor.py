@@ -99,5 +99,11 @@ def handle_client(conn):
                     continue
 
                 player_id = players.index(conn)
+                
+                # Validar turno
+                if player_id != current_turn:
+                    conn.send("No es tu turno\n".encode())
+                    continue
+
 
     
