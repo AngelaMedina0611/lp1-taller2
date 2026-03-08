@@ -52,3 +52,13 @@ def check_winner():
         (0,3,6),(1,4,7),(2,5,8),  # columnas
         (0,4,8),(2,4,6)           # diagonales
     ]
+    
+    for a,b,c in wins:
+        if board[a] == board[b] == board[c] and board[a] != " ":
+            return board[a]
+
+    # Si no hay espacios vacíos y nadie ganó, es empate
+    if " " not in board:
+        return "Empate"
+
+    return None
