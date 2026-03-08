@@ -42,4 +42,8 @@ def tunnel(client, host, port):
 
         t1.start()
         t2.start()
+        
+         # Esperar a que ambos terminen
+        t1.join()
+        t2.join()
 
