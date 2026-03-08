@@ -180,6 +180,16 @@ def handle_client(conn, addr):
             "USERS\n"
             "MSG usuario mensaje\n".encode()
         )
+        while True:
+
+            # Recibir mensaje del cliente
+            msg = conn.recv(1024).decode()
+
+            if not msg:
+                break
+
+            parts = msg.split()
+
     except:
         conn.close()
 
