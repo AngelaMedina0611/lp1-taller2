@@ -14,3 +14,6 @@ spectators = []
 
 # Símbolos de los jugadores
 symbols = ["X", "O"]
+
+# Variable que controla el turno actual
+current_turn = 0
