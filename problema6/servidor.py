@@ -203,6 +203,12 @@ def handle_client(conn, addr):
             elif parts[0] == "USERS":
                 if username in user_rooms:
                     list_users(user_rooms[username], username)
+            # ---------------- MENSAJE PRIVADO ----------------
+            elif parts[0] == "MSG":
+                target = parts[1]
+                text = " ".join(parts[2:])
+                private_message(username, target, text)
+
 
     except:
         conn.close()
