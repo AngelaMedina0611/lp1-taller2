@@ -199,6 +199,10 @@ def handle_client(conn, addr):
             elif parts[0] == "LEAVE":
                 if username in user_rooms:
                     leave_room(user_rooms[username], username)
+            # ---------------- COMANDO USERS ----------------
+            elif parts[0] == "USERS":
+                if username in user_rooms:
+                    list_users(user_rooms[username], username)
 
     except:
         conn.close()
