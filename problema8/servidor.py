@@ -119,7 +119,8 @@ def handle_client(conn):
                 
                  # Registrar movimiento
                 board[pos] = symbols[player_id]
-
-
-
+                
+                 # Notificar nuevo tablero
+                broadcast(board_text())
+                
     
