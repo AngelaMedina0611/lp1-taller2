@@ -104,6 +104,13 @@ def handle_client(client):
     try:
         # Recibir primera petición del cliente
         request = client.recv(BUFFER)
+        if not request:
+            client.close()
+            return
+
+        # Obtener la primera línea del request HTTP
+        first_line = request.split(b"\r\n")[0].decode()
+        log(first_line)
 
 
 
