@@ -246,6 +246,11 @@ def start_server():
 
         # Aceptar nueva conexión
         conn, addr = server.accept()
+        print("Nueva conexión:", addr)
+
+        # Crear hilo para el cliente
+        thread = threading.Thread(target=handle_client, args=(conn, addr))
+        thread.start()
 
 
 
