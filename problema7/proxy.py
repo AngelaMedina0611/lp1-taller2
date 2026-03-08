@@ -122,6 +122,14 @@ def handle_client(client):
         else:
             # Si no, es HTTP normal
             handle_http(client, request)
+    except Exception as e:
+        log(f"Error: {e}")
+        client.close()
 
+
+def start():
+    """
+    Inicia el servidor proxy y acepta conexiones
+    de múltiples clientes usando hilos.
 
 
