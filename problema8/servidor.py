@@ -116,6 +116,10 @@ def handle_client(conn):
                 if pos < 0 or pos > 8 or board[pos] != " ":
                     conn.send("Movimiento no permitido\n".encode())
                     continue
+                
+                 # Registrar movimiento
+                board[pos] = symbols[player_id]
+
 
 
     
