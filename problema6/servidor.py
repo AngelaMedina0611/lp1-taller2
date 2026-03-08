@@ -144,4 +144,15 @@ def leave_room(room, user):
             
              # Eliminar registro de sala del usuario
             del user_rooms[user]
+# -----------------------------------------------------------
+# LISTAR USUARIOS DE UNA SALA
+# -----------------------------------------------------------
+def list_users(room, user):
+     """
+    Envía al usuario la lista de personas conectadas en su sala.
+    """
+     if room in rooms:
+        users = ", ".join(rooms[room])
+        clients[user].send(f"Usuarios en {room}: {users}\n".encode())
+
 
