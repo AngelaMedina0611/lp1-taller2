@@ -46,4 +46,11 @@ def tunnel(client, host, port):
          # Esperar a que ambos terminen
         t1.join()
         t2.join()
+        
+finally:
+        # Cerrar conexiones
+        client.close()
+        server.close()
+
+
 
