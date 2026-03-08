@@ -66,6 +66,10 @@ def handle_http(client, request):
         if line.lower().startswith(b"host:"):
             host = line.split(b":", 1)[1].strip().decode()
 
+     # Si no hay host se cierra la conexión
+    if not host:
+        client.close()
+        return
 
 
 
