@@ -153,5 +153,13 @@ def start():
     while True:
         conn, addr = server.accept()
         print("Cliente conectado:", addr)
+        
+         # Cada cliente se maneja en un hilo
+        thread = threading.Thread(target=handle_client, args=(conn,))
+        thread.start()
+
+
+if __name__ == "__main__":
+    start()
                 
     
