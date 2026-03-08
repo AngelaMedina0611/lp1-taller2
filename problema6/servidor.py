@@ -189,6 +189,10 @@ def handle_client(conn, addr):
                 break
 
             parts = msg.split()
+            # ---------------- COMANDO CREATE ----------------
+            if parts[0] == "CREATE":
+                create_room(parts[1], username)
+
 
     except:
         conn.close()
