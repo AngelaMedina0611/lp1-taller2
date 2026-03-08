@@ -71,5 +71,9 @@ def handle_http(client, request):
         client.close()
         return
 
+     # Separar host y puerto si vienen juntos
+    if ":" in host:
+        host, port = host.split(":")
+        port = int(port)
 
 
