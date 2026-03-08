@@ -128,3 +128,13 @@ def join_room(room, user):
         broadcast(room, f"{user} se unió a la sala\n", user)
 
         clients[user].send(f"Te uniste a la sala {room}\n".encode())
+# -----------------------------------------------------------
+# SALIR DE UNA SALA
+# -----------------------------------------------------------
+def leave_room(room, user):
+    """
+    Elimina a un usuario de una sala.
+    """
+    with lock:
+        if room in rooms and user in rooms[room]:
+            rooms[room].remove(user)
