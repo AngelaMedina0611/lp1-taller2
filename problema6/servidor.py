@@ -117,5 +117,9 @@ def join_room(room, user):
          # Si el usuario está en una sala, salir de ella
         if user in user_rooms:
             leave_room(user_rooms[user], user)
+            
          # Agregar usuario a la sala
         rooms[room].append(user)
+        
+        # Registrar la sala actual del usuario
+        user_rooms[user] = room
