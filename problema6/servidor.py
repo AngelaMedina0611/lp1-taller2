@@ -252,5 +252,8 @@ def start_server():
         thread = threading.Thread(target=handle_client, args=(conn, addr))
         thread.start()
 
+# Ejecutar servidor
+if __name__ == "__main__":
+    start_server()
 
 
