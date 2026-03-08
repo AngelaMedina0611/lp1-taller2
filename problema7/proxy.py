@@ -59,7 +59,13 @@ def handle_http(client, request):
     al servidor correspondiente.
     """
     lines = request.split(b"\r\n")
-    host = None
+    host = None 
+    
+      # Buscar el header Host
+    for line in lines:
+        if line.lower().startswith(b"host:"):
+            host = line.split(b":", 1)[1].strip().decode()
+
 
 
 
