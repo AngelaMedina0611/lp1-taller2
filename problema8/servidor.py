@@ -85,5 +85,14 @@ def handle_client(conn):
         else:
             spectators.append(conn)
             conn.send("Eres espectador\n".encode())
+            
+     # Enviar estado inicial del tablero
+     broadcast(board_text())
+
+    while True:
+        try:
+            msg = conn.recv(1024).decode().strip()
+
+            with lock:
 
     
