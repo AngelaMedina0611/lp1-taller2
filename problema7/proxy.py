@@ -115,6 +115,10 @@ def handle_client(client):
         # Separar método, destino y versión HTTP
         method, target, _ = first_line.split()
 
+         # Si el método es CONNECT se trata de HTTPS
+        if method == "CONNECT":
+            host, port = target.split(":")
+            tunnel(client, host, int(port))
 
 
 
