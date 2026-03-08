@@ -208,9 +208,17 @@ def handle_client(conn, addr):
                 target = parts[1]
                 text = " ".join(parts[2:])
                 private_message(username, target, text)
-
+             # ---------------- MENSAJE A LA SALA ----------------
+            else:
+                if username in user_rooms:
+                    room = user_rooms[username]
+                    broadcast(room, f"{username}: {msg}", username)
 
     except:
+        pass
+
+
+    
         conn.close()
 
 
