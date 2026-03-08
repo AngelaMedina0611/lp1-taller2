@@ -51,6 +51,15 @@ finally:
         # Cerrar conexiones
         client.close()
         server.close()
+        
+def handle_http(client, request):
+    """
+    Maneja peticiones HTTP normales.
+    Extrae el host del header y reenvía la petición
+    al servidor correspondiente.
+    """
+    lines = request.split(b"\r\n")
+    host = None
 
 
 
