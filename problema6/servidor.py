@@ -114,6 +114,8 @@ def join_room(room, user):
             clients[user].send("La sala no existe\n".encode())
             return
         
-         # Si el usuario ya estaba en una sala, salir de ella
+         # Si el usuario está en una sala, salir de ella
         if user in user_rooms:
             leave_room(user_rooms[user], user)
+         # Agregar usuario a la sala
+        rooms[room].append(user)
