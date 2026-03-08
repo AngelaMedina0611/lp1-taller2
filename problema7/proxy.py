@@ -21,7 +21,7 @@ def tunnel(client, host, port):
     Crea un túnel entre cliente y servidor para reenviar
     datos en ambas direcciones.
     """
-     try:
+    try:
         # Conectar al servidor destino
         server = socket.create_connection((host, port))
         
@@ -47,7 +47,7 @@ def tunnel(client, host, port):
         t1.join()
         t2.join()
         
-finally:
+    finally:
         # Cerrar conexiones
         client.close()
         server.close()
@@ -75,7 +75,7 @@ def handle_http(client, request):
     if ":" in host:
         host, port = host.split(":")
         port = int(port)
-     else:
+    else:
         port = 80  # Puerto HTTP por defecto
         
     # Conectar al servidor destino
