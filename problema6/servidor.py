@@ -224,6 +224,24 @@ def handle_client(conn, addr):
                 del clients[username]
    
         conn.close()
+# -----------------------------------------------------------
+# INICIAR SERVIDOR
+# -----------------------------------------------------------
+def start_server():
+    """
+    Inicializa el servidor y acepta múltiples clientes.
+    Cada cliente se maneja con un hilo.
+    """
+
+    load_rooms()
+
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    server.bind((HOST, PORT))
+
+    server.listen()
+
+    print("Servidor iniciado en puerto", PORT)
 
 
 
