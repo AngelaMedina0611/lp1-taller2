@@ -242,6 +242,10 @@ def start_server():
     server.listen()
 
     print("Servidor iniciado en puerto", PORT)
+    while True:
+
+        # Aceptar nueva conexión
+        conn, addr = server.accept()
 
 
 
