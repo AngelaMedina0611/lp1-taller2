@@ -123,3 +123,8 @@ def join_room(room, user):
         
         # Registrar la sala actual del usuario
         user_rooms[user] = room
+        
+        # Avisar a la sala
+        broadcast(room, f"{user} se unió a la sala\n", user)
+
+        clients[user].send(f"Te uniste a la sala {room}\n".encode())
