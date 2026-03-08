@@ -123,4 +123,7 @@ def handle_client(conn):
                  # Notificar nuevo tablero
                 broadcast(board_text())
                 
+                # Verificar resultado
+                result = check_winner()
+                
     
