@@ -104,6 +104,18 @@ def handle_client(conn):
                 if player_id != current_turn:
                     conn.send("No es tu turno\n".encode())
                     continue
+                
+                # Validar que sea número
+                if not msg.isdigit():
+                    conn.send("Movimiento inválido\n".encode())
+                    continue
+                
+                pos = int(msg)
+
+                # Validar posición del tablero
+                if pos < 0 or pos > 8 or board[pos] != " ":
+                    conn.send("Movimiento no permitido\n".encode())
+                    continue
 
 
     
