@@ -100,6 +100,10 @@ def handle_client(client):
     Maneja cada cliente conectado al proxy.
     Determina si la petición es HTTP normal o HTTPS.
     """
+    
+    try:
+        # Recibir primera petición del cliente
+        request = client.recv(BUFFER)
 
 
 
