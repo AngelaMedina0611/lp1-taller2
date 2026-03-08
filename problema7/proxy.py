@@ -119,6 +119,9 @@ def handle_client(client):
         if method == "CONNECT":
             host, port = target.split(":")
             tunnel(client, host, int(port))
+        else:
+            # Si no, es HTTP normal
+            handle_http(client, request)
 
 
 
