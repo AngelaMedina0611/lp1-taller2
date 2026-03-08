@@ -71,3 +71,10 @@ def handle_client(conn):
     
      # Mensaje inicial al conectarse
     conn.send("JOIN para jugar | WATCH para observar\n".encode())
+    
+    role = conn.recv(1024).decode().strip().upper()
+
+    # Sección crítica para modificar listas compartidas
+    with lock:
+
+    
