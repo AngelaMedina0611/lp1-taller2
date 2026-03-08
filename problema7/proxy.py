@@ -14,3 +14,10 @@ def log(msg):
     que ayudan a monitorear el funcionamiento del proxy.
     """
     print(f"[PROXY] {msg}")
+    
+def tunnel(client, host, port):
+    """
+    Maneja conexiones HTTPS usando el método CONNECT.
+    Crea un túnel entre cliente y servidor para reenviar
+    datos en ambas direcciones.
+    """
