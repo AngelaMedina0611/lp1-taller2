@@ -62,3 +62,9 @@ def check_winner():
         return "Empate"
 
     return None
+
+def handle_client(conn):
+    """
+    Maneja la conexión de cada cliente en un hilo independiente.
+    """
+    global current_turn
