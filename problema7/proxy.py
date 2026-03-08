@@ -131,5 +131,9 @@ def start():
     """
     Inicia el servidor proxy y acepta conexiones
     de múltiples clientes usando hilos.
+    """
+    
+    # Crear socket TCP
+    proxy = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
