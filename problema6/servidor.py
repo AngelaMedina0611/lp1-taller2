@@ -154,5 +154,14 @@ def list_users(room, user):
      if room in rooms:
         users = ", ".join(rooms[room])
         clients[user].send(f"Usuarios en {room}: {users}\n".encode())
+# -----------------------------------------------------------
+# MANEJO DE CADA CLIENTE
+# -----------------------------------------------------------
+def handle_client(conn, addr):
+    """
+    Función que maneja la comunicación con cada cliente.
+    Cada cliente se ejecuta en un hilo diferente.
+    """
+
 
 
