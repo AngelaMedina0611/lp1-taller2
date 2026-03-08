@@ -21,3 +21,6 @@ def tunnel(client, host, port):
     Crea un túnel entre cliente y servidor para reenviar
     datos en ambas direcciones.
     """
+     try:
+        # Conectar al servidor destino
+        server = socket.create_connection((host, port))
