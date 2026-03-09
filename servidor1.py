@@ -87,3 +87,6 @@ def start_server():
          # Crear un hilo para manejar al cliente
         thread = threading.Thread(target=handle_client, args=(conn, addr))
         thread.start()
+        
+# Ejecutar servidor
+start_server()
