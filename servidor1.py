@@ -64,3 +64,10 @@ def handle_client(conn, addr):
         
 # Cerrar conexión del cliente
     conn.close()
+
+def start_server():
+    """
+    Inicia el servidor principal y espera conexiones
+    de clientes.
+    """
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
