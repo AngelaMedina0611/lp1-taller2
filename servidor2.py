@@ -23,4 +23,7 @@ while True:
     conn, addr = server.accept()
     
      # Recibir datos
-    data = conn.recv(1024)
+     data = conn.recv(1024)
+    if data:
+        # Convertir a texto
+        msg = data.decode()
