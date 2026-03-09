@@ -15,3 +15,9 @@ server.bind((HOST, PORT))
 
 # Escuchar conexiones
 server.listen()
+
+print("Servidor 2 escuchando en", PORT)
+
+while True:
+    # Esperar conexión del servidor principal
+    conn, addr = server.accept()
