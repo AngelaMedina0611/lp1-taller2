@@ -31,3 +31,10 @@ def replicate(message):
 
     except:
         print("No se pudo replicar el mensaje")
+        
+def handle_client(conn, addr):
+    """
+    Maneja la comunicación con cada cliente conectado.
+    Cada cliente se ejecuta en un hilo independiente.
+    """
+    print("Cliente conectado:", addr)
