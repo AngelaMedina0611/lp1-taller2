@@ -61,3 +61,6 @@ def handle_client(conn, addr):
 
         except:
             break
+        
+# Cerrar conexión del cliente
+    conn.close()
