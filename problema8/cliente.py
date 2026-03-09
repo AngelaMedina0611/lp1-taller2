@@ -24,3 +24,9 @@ def start_client():
     Conecta el cliente al servidor y permite enviar mensajes.
     """
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+     # Conexión al servidor
+    client.connect((HOST, PORT))
+
+     # Hilo para recibir mensajes
+    threading.Thread(target=receive, args=(client,), daemon=True).start()
