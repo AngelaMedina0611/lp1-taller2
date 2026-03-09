@@ -19,3 +19,6 @@ def replicate(message):
     """
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        
+        # Conectarse al servidor secundario
+        s.connect((REPLICA_HOST, REPLICA_PORT))
