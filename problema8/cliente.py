@@ -18,3 +18,9 @@ def receive(sock):
             print(msg)
         except:
             break
+        
+def start_client():
+    """
+    Conecta el cliente al servidor y permite enviar mensajes.
+    """
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
