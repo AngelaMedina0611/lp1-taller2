@@ -15,3 +15,6 @@ print("Conectado al servidor")
 while True:
     # Leer mensaje desde teclado
     msg = input("Mensaje: ")
+    
+     # Enviar mensaje al servidor
+    client.sendall(msg.encode())
