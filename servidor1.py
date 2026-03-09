@@ -38,3 +38,8 @@ def handle_client(conn, addr):
     Cada cliente se ejecuta en un hilo independiente.
     """
     print("Cliente conectado:", addr)
+    
+    while True:
+        try:
+            # Recibir datos del cliente
+            data = conn.recv(1024)
