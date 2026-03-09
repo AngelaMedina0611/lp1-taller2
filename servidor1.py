@@ -77,3 +77,9 @@ def start_server():
     
     # Escuchar conexiones entrantes
     server.listen()
+    
+     print("Servidor 1 escuchando en", PORT)
+
+    while True:
+        # Aceptar conexión de un cliente
+        conn, addr = server.accept()
