@@ -21,3 +21,6 @@ print("Servidor 2 escuchando en", PORT)
 while True:
     # Esperar conexión del servidor principal
     conn, addr = server.accept()
+    
+     # Recibir datos
+    data = conn.recv(1024)
