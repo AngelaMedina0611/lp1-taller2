@@ -50,3 +50,8 @@ def handle_client(conn, addr):
             
             # Convertir los datos a texto
             msg = data.decode()
+            
+            print("Mensaje recibido:", msg)
+
+            # Guardar mensaje en la lista local
+            messages.append(msg)
