@@ -9,3 +9,6 @@ messages = []
 
 # Crear socket TCP
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Asociar el socket al puerto
+server.bind((HOST, PORT))
