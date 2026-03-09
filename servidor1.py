@@ -22,3 +22,6 @@ def replicate(message):
         
         # Conectarse al servidor secundario
         s.connect((REPLICA_HOST, REPLICA_PORT))
+        
+        # Enviar el mensaje
+        s.sendall(message.encode())
