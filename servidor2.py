@@ -30,3 +30,8 @@ while True:
 
         # Guardar mensaje replicado
         messages.append(msg)
+        
+        print("Mensaje replicado:", msg)
+
+    # Cerrar conexión
+    conn.close()
