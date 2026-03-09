@@ -6,3 +6,6 @@ PORT = 6000
 
 # Lista para almacenar los mensajes replicados
 messages = []
+
+# Crear socket TCP
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
