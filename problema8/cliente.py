@@ -30,3 +30,12 @@ def start_client():
 
      # Hilo para recibir mensajes
     threading.Thread(target=receive, args=(client,), daemon=True).start()
+    
+    # Enviar mensajes al servidor
+    while True:
+        msg = input()
+        client.send(msg.encode())
+
+
+if __name__ == "__main__":
+    start_client()
