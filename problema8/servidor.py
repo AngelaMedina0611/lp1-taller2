@@ -15,6 +15,15 @@ spectators = []
 # Símbolos de los jugadores
 symbols = ["X", "O"]
 
+<<<<<<< HEAD
+=======
+# Variable que controla el turno actual
+current_turn = 0
+
+# Lock para evitar conflictos entre hilos
+lock = threading.Lock()
+
+>>>>>>> recuperar-codigo
 def board_text():
     """
     Convierte el tablero en texto para enviarlo a los clientes.
@@ -27,6 +36,7 @@ def board_text():
 ---+---+---
  {b[6]} | {b[7]} | {b[8]}
 """
+<<<<<<< HEAD
 # Variable que controla el turno actual
 current_turn = 0
 
@@ -35,3 +45,134 @@ lock = threading.Lock()
 
 
 
+=======
+def broadcast(msg):
+    """
+    Envía un mensaje a todos los jugadores y espectadores.
+    """
+    for client in players + spectators:
+        try:
+            client.sendall((msg + "\n").encode())
+        except:
+            pass
+
+def check_winner():
+    """
+    Verifica si existe un ganador o empate.
+    """
+    wins = [
+        (0,1,2),(3,4,5),(6,7,8),  # filas
+        (0,3,6),(1,4,7),(2,5,8),  # columnas
+        (0,4,8),(2,4,6)           # diagonales
+    ]
+    
+    for a,b,c in wins:
+        if board[a] == board[b] == board[c] and board[a] != " ":
+            return board[a]
+
+    # Si no hay espacios vacíos y nadie ganó, es empate
+    if " " not in board:
+        return "Empate"
+
+    return None
+
+def handle_client(conn):
+    """
+    Maneja la conexión de cada cliente en un hilo independiente.
+    """
+    global current_turn
+    
+     # Mensaje inicial al conectarse
+    conn.send("JOIN para jugar | WATCH para observar\n".encode())
+    
+    role = conn.recv(1024).decode().strip().upper()
+
+    # Sección crítica para modificar listas compartidas
+    with lock:
+         # Matchmaking: solo 2 jugadores
+        if role == "JOIN" and len(players) < 2:
+            players.append(conn)
+            symbol = symbols[len(players)-1]
+            conn.send(f"Eres jugador {symbol}\n".encode())
+
+        else:
+            spectators.append(conn)
+            conn.send("Eres espectador\n".encode())
+            
+             # Enviar estado inicial del tablero
+            broadcast(board_text())
+
+    while True:
+        try:
+            msg = conn.recv(1024).decode().strip()
+
+            with lock:
+                # Solo los jugadores pueden hacer movimientos
+                if conn not in players:
+                    continue
+
+                player_id = players.index(conn)
+                
+                # Validar turno
+                if player_id != current_turn:
+                    conn.send("No es tu turno\n".encode())
+                    continue
+                
+                # Validar que sea número
+                if not msg.isdigit():
+                    conn.send("Movimiento inválido\n".encode())
+                    continue
+                
+                pos = int(msg)
+
+                # Validar posición del tablero
+                if pos < 0 or pos > 8 or board[pos] != " ":
+                    conn.send("Movimiento no permitido\n".encode())
+                    continue
+                
+                 # Registrar movimiento
+                board[pos] = symbols[player_id]
+                
+                 # Notificar nuevo tablero
+                broadcast(board_text())
+                
+                # Verificar resultado
+                result = check_winner()
+                
+                if result:
+                    broadcast(f"Resultado: {result}")
+                    break
+
+                # Cambiar turno
+                current_turn = 1 - current_turn
+                broadcast(f"Turno de {symbols[current_turn]}")
+
+        except:
+            break
+    conn.close()
+
+
+def start():
+    """
+    Inicia el servidor y acepta conexiones de clientes.
+    """
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((HOST, PORT))
+    server.listen()
+
+    print(f"Servidor activo en {HOST}:{PORT}")
+
+    while True:
+        conn, addr = server.accept()
+        print("Cliente conectado:", addr)
+        
+         # Cada cliente se maneja en un hilo
+        thread = threading.Thread(target=handle_client, args=(conn,))
+        thread.start()
+
+
+if __name__ == "__main__":
+    start()
+                
+    
+>>>>>>> recuperar-codigo
