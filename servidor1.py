@@ -74,3 +74,6 @@ def start_server():
     
     # Asociar el socket con la dirección y puerto
     server.bind((HOST, PORT))
+    
+    # Escuchar conexiones entrantes
+    server.listen()
