@@ -86,8 +86,8 @@ def handle_client(conn):
             spectators.append(conn)
             conn.send("Eres espectador\n".encode())
             
-     # Enviar estado inicial del tablero
-     broadcast(board_text())
+             # Enviar estado inicial del tablero
+            broadcast(board_text())
 
     while True:
         try:
@@ -136,8 +136,7 @@ def handle_client(conn):
 
         except:
             break
-
-conn.close()
+    conn.close()
 
 
 def start():
