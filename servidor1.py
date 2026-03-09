@@ -11,3 +11,11 @@ REPLICA_PORT = 6000
 
 # Lista para almacenar los mensajes recibidos
 messages = []
+
+def replicate(message):
+    """
+    Envía el mensaje recibido al servidor secundario
+    para replicar los datos.
+    """
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
