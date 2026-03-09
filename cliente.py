@@ -11,3 +11,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((HOST, PORT))
 
 print("Conectado al servidor")
+
+while True:
+    # Leer mensaje desde teclado
+    msg = input("Mensaje: ")
