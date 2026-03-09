@@ -47,3 +47,6 @@ def handle_client(conn, addr):
              # Si no hay datos, el cliente se desconecta
             if not data:
                 break
+            
+            # Convertir los datos a texto
+            msg = data.decode()
