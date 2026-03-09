@@ -43,3 +43,7 @@ def handle_client(conn, addr):
         try:
             # Recibir datos del cliente
             data = conn.recv(1024)
+            
+             # Si no hay datos, el cliente se desconecta
+            if not data:
+                break
