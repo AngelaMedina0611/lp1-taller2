@@ -55,3 +55,9 @@ def handle_client(conn, addr):
 
             # Guardar mensaje en la lista local
             messages.append(msg)
+            
+            # Replicar el mensaje al servidor secundario
+            replicate(msg)
+
+        except:
+            break
