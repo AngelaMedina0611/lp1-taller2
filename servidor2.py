@@ -27,3 +27,6 @@ while True:
     if data:
         # Convertir a texto
         msg = data.decode()
+
+        # Guardar mensaje replicado
+        messages.append(msg)
