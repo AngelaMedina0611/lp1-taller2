@@ -83,3 +83,7 @@ def start_server():
     while True:
         # Aceptar conexión de un cliente
         conn, addr = server.accept()
+        
+         # Crear un hilo para manejar al cliente
+        thread = threading.Thread(target=handle_client, args=(conn, addr))
+        thread.start()
