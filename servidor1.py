@@ -71,3 +71,6 @@ def start_server():
     de clientes.
     """
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+    # Asociar el socket con la dirección y puerto
+    server.bind((HOST, PORT))
