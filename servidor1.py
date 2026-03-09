@@ -25,3 +25,9 @@ def replicate(message):
         
         # Enviar el mensaje
         s.sendall(message.encode())
+        
+         # Cerrar conexión
+        s.close()
+
+    except:
+        print("No se pudo replicar el mensaje")
